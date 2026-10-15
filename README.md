@@ -12,11 +12,16 @@ Neste desafio o objetivo é criar um encurtador de URLs completo utilizando os c
 
 #### O que foi implementado
 
-- [Listar detalhes da implementação]
+- API em .NET 10 para criar links com código automático ou próprio, validar URLs e definir expiração opcional em UTC.
+- Redirecionamento e consulta pública de estatísticas de acesso por código.
+- Persistência em SQLite com índice único para códigos e incremento atômico do contador de acessos.
+- Testes unitários e de integração para os fluxos, incluindo concorrência e persistência após reinício.
 
 Neste processo eu aprendi:
 
-- ✅
+- ✅ Transformar especificação, constituição e plano em decisões de arquitetura e testes verificáveis.
+- ✅ Tratar colisões de códigos com unicidade no banco e nova tentativa para códigos automáticos.
+- ✅ Testar concorrência e persistência após reinício usando um banco temporário.
 
 ## Bagde
 

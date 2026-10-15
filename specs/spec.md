@@ -27,9 +27,8 @@ esse link e acompanhe quantos acessos ele recebeu.
 - RF-04: acessar um link curto existente redireciona para a URL de destino
 - RF-05: cada acesso a um link válido incrementa o contador daquele link,
   incluindo acessos repetidos e automatizados
-- RF-06: o criador pode definir uma data de expiração para o link; a data e o
-  limite de validade são interpretados em UTC, e o link permanece válido até o
-  fim da data informada
+- RF-06: o criador pode informar opcionalmente uma data de expiração UTC para o
+  link; quando informada, ele permanece válido até o fim dessa data UTC
 - RF-07: o sistema devolve o total de acessos de um link a qualquer pessoa que
   conheça seu código
 - RF-08: os links e seus dados devem ser persistidos em banco de dados para que
@@ -63,6 +62,7 @@ esse link e acompanhe quantos acessos ele recebeu.
 
 ## Critérios de aceite
 - Criar um link e acessá-lo redireciona para o destino informado
+- Link criado sem data de expiração permanece válido sem prazo de expiração
 - Dois links não podem ter o mesmo código
 - Link com data de expiração vencida responde erro e não incrementa o contador
 - Um link ainda válido funciona até o fim de sua data de expiração em UTC

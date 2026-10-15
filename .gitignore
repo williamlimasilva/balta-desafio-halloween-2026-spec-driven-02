@@ -1,0 +1,31 @@
+# .NET build outputs and local Visual Studio state
+/.vs/
+/src/LinkShortener.Api/bin/
+/src/LinkShortener.Api/obj/
+/src/LinkShortener.Tests/bin/
+/src/LinkShortener.Tests/obj/
+/src/.vs/
+
+# Test runner output
+/src/LinkShortener.Tests/TestResults/
+
+# Local SQLite database in supported execution directories
+/linkshortener.db
+/linkshortener.db-journal
+/linkshortener.db-wal
+/linkshortener.db-shm
+/src/linkshortener.db
+/src/linkshortener.db-journal
+/src/linkshortener.db-wal
+/src/linkshortener.db-shm
+/src/LinkShortener.Api/linkshortener.db
+/src/LinkShortener.Api/linkshortener.db-journal
+/src/LinkShortener.Api/linkshortener.db-wal
+/src/LinkShortener.Api/linkshortener.db-shm
+
+# Local environment settings; retain sanitized examples
+.env
+.env.*
+!.env.example
+!.env.template
+!.env.*.example

@@ -2,6 +2,7 @@ using LinkShortener.Api.Data;
 using LinkShortener.Api.Endpoints;
 using LinkShortener.Api.Services;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +15,7 @@ builder.Services.AddScoped<TargetUrlValidator>();
 builder.Services.AddSingleton<Func<DateTime>>(() => DateTime.UtcNow);
 builder.Services.AddSingleton<Func<string>>(CodeGenerator.GenerateCode);
 builder.Services.AddScoped<ILinkService, LinkService>();
+builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
@@ -21,6 +23,12 @@ await using (var scope = app.Services.CreateAsyncScope())
 {
 	var dbContext = scope.ServiceProvider.GetRequiredService<LinkDbContext>();
 	await dbContext.Database.MigrateAsync();
+}
+
+if (app.Environment.IsDevelopment())
+{
+	app.MapOpenApi();
+	app.MapScalarApiReference();
 }
 
 app.MapLinkEndpoints();
